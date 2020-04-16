@@ -20,7 +20,7 @@ post "/" do
     haml :index
   end
 
-  @params = params
+  #@params = params
   haml :index
 end
 
