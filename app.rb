@@ -57,8 +57,8 @@ helpers do
       raise "a.type is invalid: <#{a.type}>" if /\A(png|jpe?g)\z/i !~ a.type
 
       ratio = a.width * 1.0 / 1080
-      header_top = 75 * ratio
-      header_bottom = 250 * ratio
+      header_top = 74 * ratio
+      header_bottom = 249 * ratio
       header_height = header_bottom - header_top
       main_a_top = 372 * ratio
       main_a_bottom = 1500 * ratio
