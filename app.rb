@@ -50,10 +50,10 @@ helpers do
   def generate_image
     Dir.mktmpdir do |dir|
       a_path = params["ss1"]["tempfile"].path
-      #raise "a is not png." if /\.png\z/ =~ a_path
       b_path = params["ss2"]["tempfile"].path
       #raise "b is not png." if /\.png\z/ =~ b_path
       a = MiniMagick::Image.open(a_path)
+      raise "a.type is invalid: <#{a.type}>" if /\A(png|jpe?g)\z/i !~ a.type
 
       ratio = a.width / 1080
       header_top = 75 * ratio
