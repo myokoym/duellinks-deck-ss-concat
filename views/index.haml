@@ -22,9 +22,12 @@
         %input{type: "file", name: "ss2"}
       %p
         メインデッキの枚数:
-        %br
         %input{type: "radio", name: "n_cards", value: "24", checked: "checked"} 20～24枚
         %input{type: "radio", name: "n_cards", value: "30"} 25～30枚
+      %p
+        著作権表記:
+        %input{type: "radio", name: "copyright", value: "0", checked: "checked"} 入れない
+        %input{type: "radio", name: "copyright", value: "1"} 入れる
       %p
         %input{type: "submit"}
     %p

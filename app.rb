@@ -56,7 +56,7 @@ helpers do
       a = MiniMagick::Image.open(a_path)
       raise "a.type is invalid: <#{a.type}>" if /\A(png|jpe?g)\z/i !~ a.type
 
-      ratio = a.width / 1080
+      ratio = a.width * 1.0 / 1080
       header_top = 75 * ratio
       header_bottom = 250 * ratio
       header_height = header_bottom - header_top
@@ -103,8 +103,32 @@ helpers do
           convert << "#{dir}/main_b.png"
         end
         convert << "#{dir}/extra.png"
-        convert << output_filepath
+        convert << "#{dir}/output.png"
       end
+
+      if params["copyright"] == "1"
+        if ratio != 1.0
+          width = 640 * ratio
+          height = 80 * ratio
+          MiniMagick::Tool::Convert.new do |convert|
+            convert << "assets/images/copyright.png"
+            convert << "-resize" << "#{width}x#{height}"
+            convert << "#{dir}/copyright.png"
+          end
+        else
+          FileUtils.cp("assets/images/copyright.png", "#{dir}/")
+        end
+
+        MiniMagick::Tool::Convert.new do |convert|
+          convert << "#{dir}/output.png"
+          convert << "#{dir}/copyright.png"
+          convert << "-gravity" << "southeast"
+          convert << "-compose" << "over"
+          convert << "-composite" << "#{dir}/output.png"
+        end
+      end
+
+      FileUtils.mv("#{dir}/output.png", output_filepath)
     end
   end
 
