@@ -108,8 +108,8 @@ helpers do
 
       if params["copyright"] == "1"
         if ratio != 1.0
-          width = 640 * ratio
-          height = 80 * ratio
+          width = 630 * ratio
+          height = 72 * ratio
           MiniMagick::Tool::Convert.new do |convert|
             convert << "assets/images/copyright.png"
             convert << "-resize" << "#{width}x#{height}"
