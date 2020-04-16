@@ -35,6 +35,8 @@
         合成に失敗しました。再度お試しいただくか、作者にお問い合わせください。
         %ul
           %li PNG形式またはJPEG形式のファイルを2つ選択しているかご確認ください。
+        %ul
+          %li フォームの再送信はできないため、画像を再度選択してください。
       - if @download_url
         %a{href: @download_url, target: "_blank"}
           %img{src: @download_url, alt: "画像", width: "50%", height: "50%"}
