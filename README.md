@@ -1,3 +1,3 @@
 # デュエルリンクスデッキスクショ合成ツール
 
-http://myokoym.net/links-deck-ss-concat/
+http://myokoym.net/duellinks-deck-ss-concat/
