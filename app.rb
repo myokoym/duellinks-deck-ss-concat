@@ -16,7 +16,8 @@ post "/" do
   rescue => e
     puts "Error: #{e.message}"
     puts e.backtrace
-    redirect to("/")
+    @error = true
+    haml :index
   end
 
   @params = params
