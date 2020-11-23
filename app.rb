@@ -67,7 +67,7 @@ helpers do
       main_b_bottom = 635 * ratio
       main_b_height = main_b_bottom - main_b_top
       extra_top = 945 * ratio
-      extra_bottom = 1230 * ratio
+      extra_bottom = 1515 * ratio
       extra_height = extra_bottom - extra_top
 
       main_b = params["n_cards"] == "30"
